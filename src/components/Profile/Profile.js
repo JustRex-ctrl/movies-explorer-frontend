@@ -12,7 +12,7 @@ function Profile() {
   return (
     <section className="profile">
       <h2 className="profile__title">Привет, Илья!</h2>
-      <form className="profile__form" action="#" name="profile-form" noValidate>
+      <form className="profile__form" action="#" name="profile-form">
         <fieldset className="profile__fieldset">
           <label className="profile__label" htmlFor="user-nаme">
             Имя

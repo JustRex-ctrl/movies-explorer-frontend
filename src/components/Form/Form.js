@@ -11,7 +11,6 @@ function Form({
         action="#"
         name={name}
         className="form__form"
-        noValidate
       >
         {children}
         <button

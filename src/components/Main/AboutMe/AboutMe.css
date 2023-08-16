@@ -33,6 +33,7 @@
   grid-area: image;
   max-width: 270px;
   max-height: 327px;
+  border-radius: 10px;
 }
 
 .about-me__name {

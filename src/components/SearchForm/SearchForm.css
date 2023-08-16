@@ -23,6 +23,7 @@
 
 .search-form__input {
   border: none;
+  max-width: 1080px;
   width: 100%;
   font-feature-settings: 'clig' off, 'liga' off;
   font-size: 28px;
@@ -32,18 +33,23 @@
   cursor: pointer;
 }
 
+.search-form__input:focus {
+  background-color: rgba(166, 170, 170, 0.3);
+  border-radius: 10px;
+}
+
 .search-form__submit {
   font-size: 11px;
-  margin: 0 0 0 45px;
-  padding: 0;
   border: none;
-  border-radius: 37%;
-  width: 65px;
+  width: 70px;
   height: 35px;
+
   cursor: pointer;
   transition: all .1s ease-in;
   color: #ffff;
-  background-color: #3456F3;
+  background-image: url(../../images/search.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
 
 .search-form__submit:hover {

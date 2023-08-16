@@ -13,9 +13,7 @@ function Navigation({ isOpen, isRootPath }) {
                 <Link to="/signup" className="navigation__link-signup">Регистрация</Link>
               </li>
               <li>
-                <Link to="/signin" className="navigation__link-signin">
-                  Войти
-                </Link>
+                <Link to="/signin" className="navigation__link-signin">Войти</Link>
               </li>
             </ul>
           </nav>
