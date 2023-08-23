@@ -1,125 +1,64 @@
-export const movies = [
-  {
-    id: 1,
-    nameRU: 'Оппенгеймер',
-    duration: 180,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/1920x',
-        },
-      },
-    },
-  },
-  {
-    id: 2,
-    nameRU: 'Оппенгеймер',
-    duration: 180,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/1920x',
-        },
-      },
-    },
-  },
-  {
-    id: 3,
-    nameRU: 'Оппенгеймер',
-    duration: 180,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/1920x',
-        },
-      },
-    },
-  },
-  {
-    id: 4,
-    nameRU: 'Оппенгеймер',
-    duration: 180,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/1920x',
-        },
-      },
-    },
-  },
-  {
-    id: 5,
-    nameRU: 'Оппенгеймер',
-    duration: 180,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/1920x',
-        },
-      },
-    },
-  },
-  {
-    id: 6,
-    nameRU: 'Оппенгеймер',
-    duration: 180,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/1920x',
-        },
-      },
-    },
-  },
-  {
-    id: 7,
-    nameRU: 'Оппенгеймер',
-    duration: 180,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/1920x',
-        },
-      },
-    },
-  },
-  {
-    id: 8,
-    nameRU: 'Оппенгеймер',
-    duration: 180,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/1920x',
-        },
-      },
-    },
-  },
-];
+export
+const MAIN_API_SETTING = {
+  baseUrl: 'https://moviebackendsitevolkov.nomoredomains.xyz',
+  // baseUrl: 'http://localhost:3003',
+  headers: {
+    authorization: 'a14cdd4b-59e2-4501-8c17-f66f4fd9c3d8',
+    'Content-Type': 'application/json'
+  }
+}
 
-export const savedMovies = [
-  {
-    id: 1,
-    nameRU: 'Барби',
-    duration: 114,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4774061/f0ae94af-050a-433b-a2a9-d6c96d644fd8/orig',
-        },
-      },
-    },
-  },
-  {
-    id: 2,
-    nameRU: 'Барби',
-    duration: 114,
-    image: {
-      formats: {
-        thumbnail: {
-          url: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4774061/f0ae94af-050a-433b-a2a9-d6c96d644fd8/orig',
-        },
-      },
-    },
-  },
-];
+export
+const MOVIES_API_SETTING = {
+  baseUrl: 'https://api.nomoreparties.co',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+}
+
+export
+const LOGIN_FORM_SETTING = {
+  type: 'login',
+  title: 'Рады видеть!',
+  btnSubmitText: 'Войти',
+  transitionText: 'Ещё не зарегистрированы?',
+  transitionPath: '/signup',
+  transitionLinkText: 'Регистрация',
+}
+
+export
+const REGISTER_FORM_SETTING = {
+  type: 'register',
+  title: 'Добро пожаловать!',
+  btnSubmitText: 'Зарегистрироваться',
+  transitionText: 'Уже зарегистрированы?',
+  transitionPath: '/signin',
+  transitionLinkText: 'Войти',
+}
+
+export
+const INPUT_ERROR_NAME = {
+  name: 'Имя не должно быть короче 2 букв',
+  email: 'Введите корректный email',
+  password: 'Пароль должен быть не короче 8 символов',
+  searchMovies: 'Нужно ввести ключевое слово',
+}
+
+export
+const ERROR_MESSAGE = {
+  notFound: 'Ничего не найдено',
+  tryAgainLater: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+  errorRequest: 'Неверный email или пароль',
+  repeatedEmail: 'Пользователь с таким email уже зарегистрирован',
+}
+
+export
+const STORAGE_DATA_NAME = {
+  userId: 'uI',
+  movies: 'movies',
+  searchQuery: 'sQ',
+  toggleShortMovie: 'toggleSM'
+}
+
+export
+const DURATION_SHORTMOVIE = 40;
