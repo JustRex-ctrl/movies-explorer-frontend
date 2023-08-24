@@ -27,6 +27,9 @@ function Movies({
   error,
   setError,
 }) {
+
+  const [isEmptyField, setIsEmptyField] = useState(false);
+
   const [ windowDimensions, setWindowDimensions ] = useState(getWindowDimensions()),
         [ searchQuery, setSearchQuery ] = useState(null),
         [ loadList, setLoadList ] = useState([]),
@@ -73,6 +76,7 @@ function Movies({
   }, [currentUser, searchQuery, typeContainer.loadCards, toggleShortMovie]);
 
   const handleMovieBtnClick = (movieData) => {
+    debugger
     const movieId = movieData.id || movieData.movieId;
 
     if (movieData.isLiked) {
@@ -100,6 +104,13 @@ function Movies({
   }
 
   const handleSubmit = (search) => {
+
+    if(!search){
+      setIsEmptyField(true);
+      return;
+    }
+    setIsEmptyField(false);
+
     setIsLoad(true);
 
     if (!savedMoviesInLS) {
@@ -134,7 +145,9 @@ function Movies({
         onSubmit={handleSubmit}
         savedSearch={searchQuery}
         toggleShortMovie={toggleShortMovie}
-        onToggleShortMovie={onToggleShortMovie}/>
+        onToggleShortMovie={onToggleShortMovie}
+        isEmptyField={isEmptyField}
+        />
       <MoviesCardList
         isLoad={isLoad}
         moviesList={movies}

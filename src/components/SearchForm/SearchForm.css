@@ -26,6 +26,11 @@
   align-items: center;
 }
 
+.search-form__error {
+  color: #ee3465;
+  font-size: 14px;
+}
+
 .search-form__input {
   border: none;
   max-width: 1070px;
@@ -106,6 +111,21 @@
   transform: translateX(-100%);
 }
 
+.search__big-error {
+  min-height: 12px;
+  margin-top: 9px;
+  margin-bottom: 9px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  color: #ee3465;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.search__big-error {
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
   .search-form {

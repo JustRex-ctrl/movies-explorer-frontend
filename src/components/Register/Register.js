@@ -9,7 +9,7 @@ function Register({ isLoad, setCurrentUser, setIsLoad, navigate, requestError, s
 
     mainApi.getRegistrationUser(userData)
       .then((test) => {
-        debugger
+
         return mainApi.getAuthorizationUser(userData);
       })
       .then(data => {

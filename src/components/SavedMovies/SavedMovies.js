@@ -20,6 +20,8 @@ function SavedMovies({
   const [ filterList, setFilterList ] = useState([]),
         [ searchQuery, setSearchQuery ] = useState(null);
 
+  const [isEmptyField, setIsEmptyField] = useState(false);
+
   useEffect(() => {
     setIsLoad(true);
 
@@ -51,6 +53,16 @@ function SavedMovies({
     setIsLoad(false);
   }, [searchQuery, toggleShortSavedMovie]);
 
+  const handleFormSubmit = (search)=> {
+
+    if(!search){
+      setIsEmptyField(true);
+      return;
+    }
+    setIsEmptyField(false);
+    setSearchQuery(search);
+  }
+
   return (
     <div className="layout">
       <Header
@@ -58,9 +70,10 @@ function SavedMovies({
       <SearchForm
         isLoad={isLoad}
         savedMoviesType={true}
-        onSubmit={setSearchQuery}
+        onSubmit={handleFormSubmit}
         toggleShortMovie={toggleShortSavedMovie}
         onToggleShortMovie={onToggleShortSavedMovie}
+        isEmptyField={isEmptyField}
       />
       <MoviesCardList
         isLoad={isLoad}

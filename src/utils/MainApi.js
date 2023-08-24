@@ -10,7 +10,7 @@ class MainApi {
     if(res.ok) {
       return res.json()
     }
-    debugger
+
     return Promise.reject(res.status)
   };
 

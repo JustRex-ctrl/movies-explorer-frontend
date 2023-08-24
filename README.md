@@ -5,7 +5,7 @@
 
 Макет: light-1
 
-Ссылка на фрон: https://moviefrontsitevolkov.nomoredomains.xyz/
+Ссылка на фронт: https://moviefrontsitevolkov.nomoredomains.xyz/
 
 Ссылка на бэк: https://moviebackendsitevolkov.nomoredomains.xyz/
 

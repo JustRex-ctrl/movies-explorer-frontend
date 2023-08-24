@@ -62,3 +62,6 @@ const STORAGE_DATA_NAME = {
 
 export
 const DURATION_SHORTMOVIE = 40;
+
+export
+const EMPTY_FIELD = 'Нужно ввести ключевое слово';

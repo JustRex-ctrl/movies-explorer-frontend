@@ -5,7 +5,7 @@ import mainApi from '../../utils/MainApi.js';
 function Login({ isLoad, setIsLoad, setCurrentUser, navigate, requestError, setRequestError }) {
   const handleAuthorizationUser = (userData) => {
     setIsLoad(true);
-    debugger
+
     mainApi.getAuthorizationUser(userData)
       .then(data => {
         const { name, email, _id } = data;
