@@ -28,9 +28,6 @@
 /*Footer*/
 @import url(./components/Footer/Footer.css);
 
-/*FilterCheckbox*/
-@import url(./components/FilterCheckbox/FilterCheckbox.css);
-
 /*Movies*/
 @import url(./components/Movies/Movies.css);
 
@@ -45,9 +42,6 @@
 
 /*NotFound*/
 @import url(./components/NotFound/NotFound.css);
-
-/*Preloader*/
-@import url(./components/Preloader/Preloader.css);
 
 /*Profile*/
 @import url(./components/Profile/Profile.css);

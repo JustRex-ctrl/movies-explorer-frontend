@@ -1,164 +1,161 @@
 .profile {
-  box-sizing: border-box;
-  padding: 74px 70px 70px;
-  width: 100%;
-  flex-grow: 1;
+  margin: 0 30px 0 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .profile__title {
-  padding: 0;
   margin: 0;
-  color: #000;
+  padding-top: 70px;
   font-size: 24px;
+  line-height: 29px;
   font-weight: 500;
-  line-height: normal;
+  text-align: center;
 }
 
 .profile__form {
-  max-width: 410px;
-  padding: 110px 0 0;
-  width: 100%;
   display: flex;
-  flex-grow: 1;
+  margin: 80px 0 0 0;
   flex-direction: column;
+  gap: 16px;
 }
 
-.profile__fieldset {
-  padding:  0 0 50px;
-  margin: 0;
-  border: none;
-  display: flex;
-  flex-direction: column;
+.profile__input-container {
   width: 100%;
-  flex-grow: 1;
-}
-
-.profile__label {
-  padding: 16px 0 0;
-  margin: 0;
-  color: #000;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: normal;
   display: flex;
   justify-content: space-between;
-  border-top: solid 1px #E8E8E8;
-  pointer-events: none;
+  gap: 20px;
 }
 
-.profile__label:first-child {
-  border: none;
+.profile__input-label {
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.profile__input-label_error {
+  color: #FF3055;
 }
 
 .profile__input {
   padding: 0;
-  margin: 0;
-  color: #000;
-  text-align: right;
+  width: 100%;
   font-size: 11px;
+  line-height: 14px;
   font-weight: 400;
-  line-height: normal;
+  text-align: right;
+  background-color: inherit;
   border: none;
-  outline: none;
-  width: 70%;
+}
+
+.profile__input::placeholder {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 500;
+  text-align: left;
 }
 
 .profile__input:focus {
-  border-bottom: solid 1px #3456F3;
+  outline: none;
 }
 
-.profile__input_active {
-  pointer-events: auto;
-}
-
-.profile__error {
-  padding: 0;
-  margin: 0;
-  min-height: 16px;
-  text-align: right;
+.profile__input_error {
   color: #FF3055;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: normal;
-  align-self: flex-end;
-  width: 100%
 }
 
-.profile__error_type_submit {
-  text-align: center;
-  padding: 20px 0;
-}
-
-.profile__submit {
-  color: #FFF;
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: normal;
-  border-radius: 3px;
-  background: #3456F3;
-  border: none;
-  align-self: center;
+.profile__divider {
   width: 100%;
-  height: 45px;
-  cursor: pointer;
-  transition: all .1s linear;
+  height: 1px;
+  background-color: #424242;
 }
 
-.profile__submit:hover {
-  opacity: .8;
+.profile__wrapper {
+  margin: 220px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
-.profile__submit_disable {
-  background: #F8F8F8;
-  color: #C2C2C2;
-}
-
-.profile__button {
-  padding: 0;
-  margin: 16px 0 0;
-  color: #000;
-  font-size: 13px;
+.profile__btn-submit {
+  font-size: 12px;
+  line-height: 15px;
   font-weight: 400;
-  line-height: normal;
   border: none;
-  height: fit-content;
-  background-color: transparent;
+  background-color: inherit;
   cursor: pointer;
-  transition: all .1s linear;
+  transition: color .2s ease-out;
 }
 
-.profile__button_color_red {
+.profile__btn-submit:disabled {
+  color: #8B8B8B;
+  cursor: pointer;
+}
+
+.profile__btn-exit {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 500;
+  color: #FF3055;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  transition: color .2s ease-out;
+}
+
+.profile__info {
+  margin: 0;
+  padding: 20px 0 0 0;
+  width: 100%;
+  height: 12px;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.profile__info_type_success {
+  color: #2BE080;
+}
+
+.profile__info_type_error {
   color: #FF3055;
 }
 
-.profile__button:hover {
-  opacity: .8;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .profile {
-    padding: 235px 30px 270px
+    margin: 0 auto;
+    width: 410px;
+  }
+
+  .profile__title {
+    margin: auto 0 0 0;
+    padding: 40px 0 0 0;
   }
 
   .profile__form {
-    padding: 82px 0 0;
+    margin: 96px 0 auto 0;
+  }
+
+  .profile__wrapper {
+    margin: 220px 0 0 0;
+    padding: 40px 0;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (min-width: 1280px) {
   .profile {
-    padding: 71px 30px 40px;
+    padding: 18px 0;
+    grid-column: 2/3;
   }
 
   .profile__form {
-    padding: 65px 0 0;
+    margin: 123px 0 auto 0;
   }
 
-  .profile__button {
-    font-size: 12px;
+  .profile__wrapper {
+    margin: 220px 0 0 0;
+    padding: 40px 0 0 0;
   }
 }

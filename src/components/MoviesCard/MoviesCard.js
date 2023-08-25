@@ -1,39 +1,63 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { MOVIES_API_SETTING } from '../../utils/constants';
 
-function MoviesCard({ imageLink, title, duration }) {
+function MoviesCard({ movie, handleActionBtn, savedMovieBtn }) {
+
+  const {
+          duration,
+          image,
+          trailerLink,
+          nameRU,
+          isLiked
+        } = movie,
+        btnClassName = `card__btn ${
+          !savedMovieBtn
+            ? 'movie__delete-button'
+            : isLiked
+              ? 'movie__saved-button'
+              : ' movie__save-button'
+        }`
+
   const durationInHours = duration > 60 ? `${parseInt(duration / 60, 10)}ч${duration % 60}м` : `${duration}м`;
-  const [isActive, setIsActive] = useState(false);
-  const { pathname } = useLocation();
+
+  const handleAction = () => {
+    handleActionBtn(movie);
+  }
+
   return (
     <li className="movie">
-      <img className="movie__image" alt={`Постер к видео ${title}`} src={imageLink} />
+      <a
+        className='movie__image'
+        href={trailerLink}
+        target="_blank"
+        rel="noreferrer">
+        <img
+          src={image.url
+            ? `${MOVIES_API_SETTING.baseUrl}${image.url}`
+            : image
+          }
+          alt={nameRU}
+          className="card__img"
+          />
+      </a>
       <div className="movie__card-bottom">
-        <div className='movie__top'>
-          <h2 className="movie__title">{title}</h2>
-            {pathname === '/movies'
-              ? (
-                <button
-                  type="button"
-                  className={`movie__save-button ${isActive ? 'movie__save-button_active' : ''}`}
-                  aria-label="Сохранить фильм"
-                  onClick={() => setIsActive(!isActive)}
-                />
-              )
-              : (
-                <button
-                  type="button"
-                  className="movie__delete-button"
-                  aria-label="Удалить фильм"
-                />
-                )}
-        </div>
-
-
-        <p className="movie__duration">{durationInHours}</p>
+      <div className='movie__top'>
+      <div className="movie__title">
+        <h2 className="card__title">
+          {nameRU}
+        </h2>
       </div>
+      <button
+        onClick={handleAction}
+        className={btnClassName}>
+        {!savedMovieBtn ? "" : isLiked ? "" : " "}
+      </button>
+      </div>
+
+      <p className="card__duration">{durationInHours}</p>
+      </div>
+
     </li>
-  );
+  )
 }
 
 export default MoviesCard;

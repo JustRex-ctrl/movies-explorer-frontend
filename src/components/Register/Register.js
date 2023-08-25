@@ -1,25 +1,38 @@
-import Form from '../Form/Form';
-import Input from '../Input/Input';
+import Form from '../Form/Form.js';
+import { ERROR_MESSAGE, REGISTER_FORM_SETTING, STORAGE_DATA_NAME } from '../../utils/constants.js';
+import mainApi from '../../utils/MainApi.js';
 
-function Register() {
-  const isFormValid = true;
+function Register({ isLoad, setCurrentUser, setIsLoad, navigate, requestError, setRequestError }) {
+  const handleRegistrationUser = (userData) => {
+    setIsLoad(true);
+
+
+    mainApi.getRegistrationUser(userData)
+      .then((test) => {
+
+        return mainApi.getAuthorizationUser(userData);
+      })
+      .then(data => {
+        const { name, email, _id } = data;
+
+        if (_id) {
+          localStorage.setItem(STORAGE_DATA_NAME.userId, data._id);
+          setCurrentUser(oldState => ({ name, email, loggeIn: true }));
+          navigate('/movies');
+        };
+      })
+      .catch(() => setRequestError(ERROR_MESSAGE.repeatedEmail))
+      .finally(() => setIsLoad(false));
+  };
+
   return (
-    <Form
-      name="register"
-      title="Добро пожаловать!"
-      buttonText="Зарегистрироваться"
-      isFormValid={isFormValid}
-      question="Уже зарегистрированы?"
-      link="/signin"
-      linkText="Войти"
-    >
-      <fieldset className="form__fieldset">
-        <Input name="name" type="text" required="required" labelText="Имя" minLength="2" />
-        <Input name="email" type="email" required="required" labelText="E-mail" />
-        <Input name="password" type="password" required="required" labelText="Пароль" minLength="3" errorText="Что-то пошло не так..." />
-      </fieldset>
-    </Form>
+      <Form
+        isLoad={isLoad}
+        setting={REGISTER_FORM_SETTING}
+        handleSubmit={handleRegistrationUser}
+        requestError={requestError}/>
+
   );
-}
+};
 
 export default Register;

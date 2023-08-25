@@ -1,25 +1,44 @@
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import Navigation from '../Navigation/Navigation';
+import { CurrentUserContext } from '../../context/CurrentUserContext.js';
+import Navigation from '../Navigation/Navigation.js';
 
-function Header({ isRootPath }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  function handleBurgerClick() {
-    setIsMenuOpen(!isMenuOpen);
+function Header({ theme }) {
+  const { loggeIn } = useContext(CurrentUserContext);
+  const [ openBurger, setOpenBurger ] = useState(false);
+
+  const handleToggleBurger = () => {
+    setOpenBurger(!openBurger);
   }
+
   return (
-    <header className={`header ${isRootPath ? 'header_theme_dark' : ''}`}>
-      <Link className="header__logo-link" to="/" />
-      <Navigation isOpen={isMenuOpen} isRootPath={isRootPath} />
-      {!isRootPath && (
-        <button onClick={handleBurgerClick} className={`header__burger-button ${isMenuOpen ? 'header__burger-button_type_close' : ''}`} type="button" name="burger" aria-label="Открыть меню навигации">
-          <div className={`header__burger-button-border-lines  ${isMenuOpen ? 'header__burger-button-border-lines_type_close' : ''}`}>
-            <div className={`header__burger-button-middle-line  ${isMenuOpen ? 'header__burger-button-middle-line_type_close' : ''}`} />
+    <header className="header">
+      <Link to="/" className="header__logo"/>
+      { !theme.default && ( loggeIn
+        ? <div>
+            <div className={`header__overlay ${openBurger ? "header__overlay_active" : ""}`}/>
+            <button
+              className="header__burger"
+              onClick={handleToggleBurger}>
+              <div
+                className={`header__burger-inner ${openBurger ? "header__burger-inner_active" : ""}`}/>
+            </button>
+            <Navigation
+              isOpenBurger={openBurger}/>
           </div>
-        </button>
-      )}
+        : <div className="header__entrance">
+            <Link to="/signup" className="header__link">
+              Регистрация
+            </Link>
+            <Link to="/signin" className="header__button">
+              Войти
+            </Link>
+          </div>
+        )
+      }
+
     </header>
   );
-}
+};
 
 export default Header;
