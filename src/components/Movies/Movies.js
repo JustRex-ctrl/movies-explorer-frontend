@@ -76,7 +76,7 @@ function Movies({
   }, [currentUser, searchQuery, typeContainer.loadCards, toggleShortMovie]);
 
   const handleMovieBtnClick = (movieData) => {
-    debugger
+
     const movieId = movieData.id || movieData.movieId;
 
     if (movieData.isLiked) {

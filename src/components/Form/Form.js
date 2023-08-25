@@ -45,6 +45,7 @@ function Form({ isLoad, setting, handleSubmit, requestError }) {
               maxLength={30}
               onChange={handleChange}
               required />
+              <span className="form__span-error">{errors.name}</span>
           </div>
         }
 
@@ -61,6 +62,7 @@ function Form({ isLoad, setting, handleSubmit, requestError }) {
             className={`form__input ${errors.email ? "form__input_error" : ""}`}
             onChange={handleChange}
             required />
+          <span className="form__span-error">{errors.email}</span>
         </div>
 
         <div
@@ -76,16 +78,8 @@ function Form({ isLoad, setting, handleSubmit, requestError }) {
             minLength={8}
             onChange={handleChange}
             required />
-          <span className="form__span-error">
-            {errors[currentInputName]
-              ? INPUT_ERROR_NAME[currentInputName]
-              : ""
-              ? requestError
-              : requestError
-            }
-          </span>
+            <span className="form__span-error">{errors.password}</span>
         </div>
-
 
       </form>
 

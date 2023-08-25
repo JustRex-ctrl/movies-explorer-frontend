@@ -81,6 +81,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .movies-grid__list {
+    grid-template-columns: minmax(240px, 1fr);
+  }
+
   .movies-grid {
     padding: 0 30px;
   }
@@ -88,12 +92,6 @@
   .movies-grid__list {
     row-gap: 35px;
     column-gap: 30px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .movies-grid__list {
-    grid-template-columns: minmax(240px, 1fr);
   }
 }
 
